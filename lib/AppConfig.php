@@ -10,26 +10,24 @@ namespace OCA\Files_Antivirus;
 
 use \OCP\IConfig;
 
-	/**
-	 * @method string getAvMode()
-	 * @method string getAvSocket()
-	 * @method string getAvHost()
-	 * @method int getAvPort()
-	 * @method string getAvCmdOptions()
-	 * @method int getAvChunkSize()
-	 * @method string getAvPath()
-	 * @method string getAvInfectedAction()
-	 * 
-	 * @method null setAvMode(string $avMode)
-	 * @method null setAvSocket(string $avsocket)
-	 * @method null setAvHost(string $avHost)
-	 * @method null setAvPort(int $avPort)
-	 * @method null setAvCmdOptions(string $avCmdOptions)
-	 * @method null setAvChunkSize(int $chunkSize)
-	 * @method null setAvPath(string $avPath)
-	 * @method null setAvInfectedAction(string $avInfectedAction)
-	 */
-
+/**
+ * @method string getAvMode()
+ * @method string getAvSocket()
+ * @method string getAvHost()
+ * @method int getAvPort()
+ * @method string getAvCmdOptions()
+ * @method int getAvChunkSize()
+ * @method string getAvPath()
+ * @method string getAvInfectedAction()
+ * @method null setAvMode(string $avMode)
+ * @method null setAvSocket(string $avsocket)
+ * @method null setAvHost(string $avHost)
+ * @method null setAvPort(int $avPort)
+ * @method null setAvCmdOptions(string $avCmdOptions)
+ * @method null setAvChunkSize(int $chunkSize)
+ * @method null setAvPath(string $avPath)
+ * @method null setAvInfectedAction(string $avInfectedAction)
+ */
 class AppConfig {
 	private $appName = 'files_antivirus';
 	private $config;
@@ -101,10 +99,9 @@ class AppConfig {
 	 * Set a value by key
 	 * @param string $key
 	 * @param string $value
-	 * @return string
 	 */
-	public function setAppvalue($key, $value) {
-		return $this->config->setAppValue($this->appName, $key, $value);
+	public function setAppValue($key, $value) {
+		$this->config->setAppValue($this->appName, $key, $value);
 	}
 	
 	/**
@@ -115,7 +112,7 @@ class AppConfig {
 	 */
 	protected function setter($key, $args) {
 		if (array_key_exists($key, $this->defaults)) {
-			$this->setAppvalue($key, $args[0]);
+			$this->setAppValue($key, $args[0]);
 		} else {
 			throw new \BadFunctionCallException($key . ' is not a valid key');
 		}
